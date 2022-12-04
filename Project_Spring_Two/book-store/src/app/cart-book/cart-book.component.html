@@ -1,0 +1,79 @@
+<div class="container-fluid" style="margin-top: 150px">
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-8">
+      <div class="row">
+        <div style="margin-bottom: 20px">
+          <table class="table">
+            <thead class="table-dark text-center">
+            <tr>
+              <td>STT</td>
+              <td>Ảnh</td>
+              <td>Tiêu đề</td>
+              <td>Giá</td>
+              <td>Số lượng</td>
+              <td>Thành tiền</td>
+              <td></td>
+
+            </tr>
+            </thead>
+            <tbody class="table-group-divider table-divider-color text-center">
+            <tr style="border: 1px solid silver" *ngFor=" let carts of carts;let i = index">
+              <td>{{i + 1}}</td>
+              <td >
+                <div style="display: flex; justify-content: center;background: silver">
+                  <img
+                    src="{{carts.imageUrl}}"
+                    width="170%" height="100px" alt="">
+                </div>
+              </td>
+              <td style="width: 200px">
+                {{carts.title}}
+              </td>
+              <td style="width: 150px">{{carts.price| number : '1.0-2'}} VNĐ</td>
+              <td style="width: 150px">
+                <button (click)="reduce(i,carts.quantity)" >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-circle" viewBox="0 0 16 16">
+                    <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                    <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z"/>
+                  </svg>
+                </button>
+                <input (change)="updateQuantity(i,$event)" type="text" [value]="carts.quantity"
+                       style="width: 30px;text-align: center">
+                <button (click)="increase(i,carts.quantity)">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+                  <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                  <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                </svg></button>
+              </td>
+              <td style="width: 150px">{{subTotal(carts)| number : '1.0-2'}} VNĐ</td>
+              <td>
+                <button class="btn btn-sm btn-danger" (click)="removeCart(i)">Xóa</button>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-2 ">
+      <div style="border: 1px solid silver;padding: 5px;">
+        <div style="padding: 30px 10px;text-align: center;border: 1px solid silver;">Tổng tiền
+          : {{totalMoney| number : '1.0-2'}} VNĐ
+        </div>
+        <div>
+          <div class="text-center mt-2">
+            <button class="btn btn-success btn-rounded">Thanh toán</button>
+          </div>
+<!--          <div>-->
+<!--            <button></button>-->
+<!--          </div>-->
+        </div>
+      </div>
+
+    </div>
+    <div class="col-log-1">
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,65 @@
+
+<div class="container-fluid" style="min-height: 100vh;background-image: url('https://ongnhuahdpevietnam.com/wp-content/uploads/2022/08/hoa-van-den.jpg');padding-top: 150px">
+  <div class="row" style=";text-align: center">
+    <div class="col-lg-3">
+    </div>
+    <div class="col-lg-6">
+      <div style="font-weight: bold ; color: black; padding: 20px 0 "><h1 style="border-bottom: 1px solid dodgerblue" class="text-white">
+        <span style="color: dodgerblue" ></span>Tổng hợp sách</h1></div>
+    </div>
+    <div class="col-lg-3"></div>
+  </div>
+  <div class="row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10 ">
+      <div class="d-flex justify-content-end">
+        <input style="border-radius: 4px" placeholder="Tiêu đề" type="text" [(ngModel)]="title" (change)="getAllAndSearchBook()">
+        <input style="border-radius: 4px" placeholder="Tác giả" class="ms-2" type="text" [(ngModel)]="author" (change)="getAllAndSearchBook()">
+        <button class="btn btn-outline-success ms-2" type="submit">Tìm kiếm</button>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+
+  <div class="row">
+    <div class="col"></div>
+    <div class="col-lg-10">
+      <div class="row " style="margin-top: 30px">
+        <div class="col-lg-3" *ngFor="let book of books">
+          <div class="mb-3">
+            <div class="card " style="; ;width:100%;margin:20px auto">
+              <div class="bg-image hover-overlay ripple mb-3" data-mdb-ripple-color="light"
+                   style="display: flex ; justify-content: center;padding-top: 20px">
+                <img src="{{book.imageUrl}}"
+                     class="img-fluid" style="height: 150px"/>
+                <!--                <a href="#!">-->
+                <!--                  <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>-->
+                <!--                </a>-->
+              </div>
+              <div class="card-body">
+                <h5 class="card-title" style="font-weight: bold;font-size: 13px">{{book.title}}</h5>
+                <p class="card-text">Giá bán : {{book.price| number : '1.0-2'}} VNĐ</p>
+                <p class="card-text">Tác giả : {{book.author}}</p>
+                <div style="text-align: center">
+                  <a class="btn btn-primary mb-2" [routerLink]="['/book-detail/',book.id]" style="width: 80%;">Chi
+                    tiết</a>
+                  <button class="btn btn-success" (click)="addToCart(book)" style="width: 80%;">Thêm vào giỏ hàng</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+  <div class="row text-center mb-3">
+    <div class="col-lg-12">
+      <button *ngIf="page" class="btn btn-secondary" (click)="previous()">-</button>
+      <span class="text-info" style="font-size: 18px">{{page + 1}}/{{totalPage}}</span>
+      <button *ngIf="page != totalPage -1" (click)="next()" class="btn btn-secondary">+</button>
+    </div>
+  </div>
+</div>
+
+

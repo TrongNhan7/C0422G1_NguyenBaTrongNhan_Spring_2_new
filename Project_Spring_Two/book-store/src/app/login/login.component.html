@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row mb-5">
+    <div class="col"></div>
+    <div class="col-lg-4">
+      <div id="login">
+        <div class="row">
+          <h2 style="text-align: center;color: dodgerblue; margin-bottom: 20px"> Đăng nhập</h2>
+        </div>
+        <div class="row">
+          <form (ngSubmit)="userLogin()">
+            <!-- Email input -->
+            <div class="form-outline mb-4">
+              <input name="email" type="email" id="username" [(ngModel)]="account.email" class="form-control"/>
+              <label class="form-label" for="username">Email</label>
+            </div>
+
+            <!-- Password input -->
+            <div class="form-outline mb-4">
+              <input type="password" name="password" [(ngModel)]="account.password" id="password" class="form-control"/>
+              <label class="form-label" for="password">Mật khẩu</label>
+            </div>
+
+            <!-- 2 column grid layout for inline styling -->
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block mb-4">Đăng nhập</button>
+
+            <!-- Register buttons -->
+            <div class="text-center">
+              <p>Bạn chưa có tài khoản? <a href="#!">Đăng ký</a></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col"></div>
+  </div>
+</div>

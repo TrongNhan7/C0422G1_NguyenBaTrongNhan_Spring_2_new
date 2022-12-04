@@ -1,0 +1,73 @@
+<app-header></app-header>
+<div class="container-fluid" *ngIf="book">
+  <div class="row" style="margin-top: 100px">
+    <h1 style="text-align: center">Thông tin chi tiết</h1>
+  </div>
+  <div class="row " style="margin-top: 50px">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-10">
+      <div class="row">
+        <div class="col-lg-4">
+          <div style="width: 70%;margin: auto">
+            <img width="100%"
+                 src="{{book.imageUrl}}"
+                 alt="">
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row" style="border-bottom: 4px solid dodgerblue">
+            <h2>{{book.title}}</h2>
+          </div>
+          <div class="row " style="border-bottom:4px solid dodgerblue">
+            <div class="col-lg-6">
+              <ul id="detail">
+                <li>Mả sản phẩm : {{book.id}}</li>
+                <li>Tác giả: {{book.author}}</li>
+                <li>Thể loại: {{book.categories.name}}</li>
+                <li>Nhà xuất bản : {{book.publisher}}</li>
+                <li>Số trang: {{book.totalPages}}</li>
+                <li>Kích thước: {{book.width}}x{{book.height}}cm</li>
+                <li>Số lượng: {{book.quantity}} cuốn</li>
+              </ul>
+            </div>
+            <div class="col-lg-6" style="text-align: center">
+              <div style="margin: 20px auto; background-color: dodgerblue; padding: 24px 0; color: white;font-size: 27px">
+                Giá: {{book.price| number : '1.0-2'}} VNĐ
+              </div>
+<!--              <div class="mb-3">-->
+<!--                <b>Số lượng:</b>-->
+<!--                <button style="border: none; padding: 5px 10px">-</button>-->
+<!--                4-->
+<!--                <button style="border: none;padding: 5px 10px"> +</button>-->
+<!--              </div>-->
+              <div class="mb-3">
+                <button class="btn btn-success" style="width: 70%">
+                  Thêm vào giỏ hàng
+                </button>
+              </div>
+              <div class="mb-3">
+                <button class="btn btn-success" style="width: 70%">
+                  Mua ngay
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-1"></div>
+  </div>
+  <div style="height: 50px">
+<!--    <div class="col"></div>-->
+<!--    <div class="col-lg-8">-->
+<!--      <div class="row text-center mt-5">-->
+<!--        <h1>Nội dung sách</h1>-->
+<!--      </div>-->
+<!--      <div class="row" style="font-size: 24px;text-align: center">-->
+<!--        {{book.summary}}-->
+<!--      </div>-->
+<!--    </div>-->
+<!--    <div class="col"></div>-->
+  </div>
+</div>
+
